@@ -53,7 +53,7 @@
 
             <div class="s-header__branding">
                 <p class="site-title">
-                    <a href="index.html" rel="home">Spurgeon.</a>
+                    <a href="{% url 'blog_index' %}" rel="home">Spurgeon.</a>
                 </p>
             </div>
 
@@ -64,7 +64,7 @@
                     <h3 class="s-header__nav-heading">Navigate to</h3>
     
                     <ul class="s-header__nav">
-                        <li><a href="index.html" title="">Home</a></li>
+                        <li><a href="{% url 'blog_index' %}" title="">Home</a></li>
                         <li class="has-children">
                             <a href="#0" title="" class="">Categories</a>
                             <ul class="sub-menu">
@@ -83,9 +83,8 @@
                                 <li><a href="single-audio.html">Audio Post</a></li>
                             </ul>
                         </li>
-                        <li><a href="styles.html" title="">Styles</a></li>
-                        <li><a href="about.html" title="">About</a></li>
-                        <li class="current-menu-item"><a href="contact.html" title="">Contact</a></li>
+                        <li><a href="{% url 'blog_about' %}" title="">About</a></li>
+                        <li class="current-menu-item"><a href="{% url 'blog_contact' %}" title="">Contact</a></li>
                     </ul> <!-- end s-header__nav -->
 
                 </nav> <!-- end s-header__nav-wrap -->

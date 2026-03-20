@@ -52,7 +52,7 @@
 
             <div class="s-header__branding">
                 <p class="site-title">
-                    <a href="index.html" rel="home">Spurgeon.</a>
+                    <a href="{% url 'blog_index' %}" rel="home">Spurgeon.</a>
                 </p>
             </div>
 
@@ -63,14 +63,15 @@
                     <h3 class="s-header__nav-heading">Navigate to</h3>
     
                     <ul class="s-header__nav">
-                        <li><a href="index.html" title="">Home</a></li>
+                        <li><a href="{% url 'blog_index' %}" title="">Home</a></li>
                         <li class="has-children">
                             <a href="#0" title="" class="">Categories</a>
                             <ul class="sub-menu">
-                                <li><a href="category.html">Lifestyle</a></li>
-                                <li><a href="category.html">Travels</a></li>
-                                <li><a href="category.html">Workplace</a></li>
-                                <li><a href="category.html">Health</a></li>
+                                <li><a href="{% url 'blog_category' 'lifestyle' %}">Lifestyle</a></li>
+                                <li><a href="{% url 'blog_category' 'travels' %}">Travels</a></li>
+                                <li><a href="{% url 'blog_category' 'work' %}">Work</a></li>
+                                <li><a href="{% url 'blog_category' 'music' %}">Music</a></li>
+                                <li><a href="{% url 'blog_category' 'anime' %}">Anime</a></li>
                             </ul>
                         </li>
                         <li class="current-menu-item has-children">
@@ -81,9 +82,8 @@
                                 <li><a href="single-audio.html">Audio Post</a></li>
                             </ul>
                         </li>
-                        <li><a href="styles.html" title="">Styles</a></li>
-                        <li><a href="about.html" title="">About</a></li>
-                        <li><a href="contact.html" title="">Contact</a></li>
+                        <li><a href="{% url 'blog_about' %}" title="">About</a></li>
+                        <li><a href="{% url 'blog_contact' %}" title="">Contact</a></li>
                     </ul> <!-- end s-header__nav -->
 
                 </nav> <!-- end s-header__nav-wrap -->
@@ -600,19 +600,20 @@
                         <div class="column lg-6">
                             <h4>Categories</h4>
                             <ul class="link-list">
-                                <li><a href="category.html">Lifestyle</a></li>
-                                <li><a href="category.html">Travels</a></li>
-                                <li><a href="category.html">Work</a></li>
-                                <li><a href="category.html">Anime</a></li>
+                                <li><a href="{% url 'blog_category' 'lifestyle' %}">Lifestyle</a></li>
+                                <li><a href="{% url 'blog_category' 'travels' %}">Travels</a></li>
+                                <li><a href="{% url 'blog_category' 'work' %}">Work</a></li>
+                                <li><a href="{% url 'blog_category' 'music' %}">Music</a></li>
+                                <li><a href="{% url 'blog_category' 'anime' %}">Anime</a></li>
                             </ul>
                         </div>
                         <div class="column lg-6">
                             <h4>Site Links</h4>
                             <ul class="link-list">
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="category.html">Categories</a></li>
-                                <li><a href="{% url 'about' %}">About</a></li>
-                                <li><a href="about.html">Contact</a></li>
+                                <li><a href="{% url 'blog_index' %}">Home</a></li>
+                                <li><a href="{% url 'blog_categories' %}">Categories</a></li>
+                                <li><a href="{% url 'blog_about' %}">About</a></li>
+                                <li><a href="{% url 'blog_contact' %}">Contact</a></li>
                             </ul>
                         </div>
                     </div>
