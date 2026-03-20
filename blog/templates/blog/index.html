@@ -135,7 +135,7 @@
                 <div class="hero__slider swiper-container">
 
                     <div class="swiper-wrapper">
-                        {% for post in posts|slice:':3' %}
+                        {% for post in hero_posts %}
                         <article class="hero__slide swiper-slide">
                             {% if post.photos.first %}
                                 <div class="hero__entry-image" style="background-image: url('{{ post.photos.first.img_upload.url }}');"></div>
@@ -187,7 +187,6 @@
                     <div class="bricks-wrapper" data-animate-block>
 
                         <div class="grid-sizer"></div>
-
                         {% for post in posts %}
         <article class="brick entry" data-animate-el>
             <div class="entry__thumb">

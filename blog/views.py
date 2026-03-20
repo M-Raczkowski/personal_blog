@@ -4,11 +4,15 @@ from django.http import HttpResponseRedirect
 from blog.forms import CommentForm, PhotoForm
 
 def blog_index(request):
-    posts = Post.objects.all().order_by("-created_on")
-    context ={
+    all_posts = Post.objects.all().order_by("-created_on")
+
+    hero_posts = all_posts[:3]
+    posts = all_posts[3:11]
+
+    return render(request, "blog/index.html", {
         "posts": posts,
-    }
-    return render(request, "blog/index.html", context)
+        "hero_posts": hero_posts
+    })
 
 def blog_category(request, category):
     posts = Post.objects.filter(
@@ -42,6 +46,8 @@ def blog_detail(request, pk):
         "author" : author,
     }
     return render(request, "blog/detail.html", context)
+
+
 
 def blog_categories(request):
     return render(request, "blog/categories.html")
