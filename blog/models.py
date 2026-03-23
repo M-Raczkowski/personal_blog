@@ -21,6 +21,12 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now=True)
     last_modified = models.DateTimeField(auto_now=True)
     categories = models.ManyToManyField("Category", related_name="posts")
+    POST_TYPE_CHOICES = [
+        ("standard", "Standard"),
+        ("audio", "Audio"),
+        ("video", "Video"),
+    ]
+    post_type = models.CharField(max_length=10, choices=POST_TYPE_CHOICES, default="standard")
     author = models.ForeignKey("Author", on_delete=models.CASCADE)
 
     def __str__(self):

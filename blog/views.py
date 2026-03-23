@@ -25,12 +25,17 @@ def blog_category(request, category):
 
 def blog_detail(request, pk):
     post = Post.objects.get(pk=pk)
-    author = Author.objects.get(pk=pk)
     context = {
-        "post" : post,
-        "author" : author,
+        "post": post,
+        "author": post.author,
     }
-    return render(request, "blog/detail.html", context)
+    if post.post_type == "audio":
+        template = "blog/single-audio.html"
+    elif post.post_type == "video":
+        template = "blog/single-video.html"
+    else:
+        template = "blog/single-standard.html"
+    return render(request, template, context)
 
 
 
