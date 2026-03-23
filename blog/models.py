@@ -27,17 +27,6 @@ class Post(models.Model):
         return self.title
 
 
-#class Comment defines readers posted comments (database)
-class Comment(models.Model):
-    author = models.CharField(max_length=60)
-    body = models.TextField()
-    created_on = models.DateTimeField(auto_now_add=True)
-    #When a post is deleted on_delete=models.CASCADE makes sure that the comments are deleted as well
-    post = models.ForeignKey("Post", on_delete=models.CASCADE)
-
-    def __str__(self):
-        return f"{self.author} on '{self.post}'"
-
 class Photo(models.Model):
     name = models.CharField(max_length=60)
     img_upload = models.ImageField(upload_to="images/")

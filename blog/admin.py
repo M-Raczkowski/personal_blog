@@ -1,6 +1,6 @@
 
 from django.contrib import admin
-from blog.models import Category, Comment, Post, Photo, Author
+from blog.models import Category, Post, Photo, Author
 
 class CategoryAdmin(admin.ModelAdmin):
     pass
@@ -12,8 +12,6 @@ class PhotoInline(admin.TabularInline):
 class PostAdmin(admin.ModelAdmin):
     inlines = [PhotoInline]
 
-class CommentAdmin(admin.ModelAdmin):
-    pass
 
 class AuthorAdmin(admin.ModelAdmin):
     pass
@@ -21,5 +19,4 @@ class AuthorAdmin(admin.ModelAdmin):
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Post, PostAdmin)
 admin.site.register(Photo)
-admin.site.register(Comment, CommentAdmin)
 admin.site.register(Author, AuthorAdmin)

@@ -1,11 +1,10 @@
 from django.shortcuts import render, redirect
-from blog.models import Post, Comment, Photo, Author
+from blog.models import Post, Photo, Author
 from django.http import HttpResponseRedirect
-from blog.forms import CommentForm, PhotoForm
+from blog.forms import PhotoForm
 
 def blog_index(request):
     all_posts = Post.objects.all().order_by("-created_on")
-
     hero_posts = all_posts[:3]
     posts = all_posts[3:11]
 
@@ -27,22 +26,8 @@ def blog_category(request, category):
 def blog_detail(request, pk):
     post = Post.objects.get(pk=pk)
     author = Author.objects.get(pk=pk)
-    form = CommentForm()
-    if request.method == "POST":
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            comment = Comment(
-                author=form.cleaned_data["author"],
-                body=form.cleaned_data["body"],
-                post=post
-            )
-            comment.save()
-            return HttpResponseRedirect(request.path_info)
-    comments = Comment.objects.filter(post=post)
     context = {
         "post" : post,
-        "comments" : comments,
-        "form" : form,
         "author" : author,
     }
     return render(request, "blog/detail.html", context)
