@@ -15,20 +15,20 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('ckeditor5/', include('django_ckeditor_5.urls')),
     path('about/', views.blog_about, name='blog_about'),
     path("", views.blog_index, name="blog_index"),
     path("post/<int:pk>/", views.blog_detail, name="blog_detail"),
     path("category/<str:category>/", views.blog_category, name="blog_category"),
     path('contact/', views.blog_contact, name="blog_contact"),
     path('categories/', views.blog_categories, name="blog_categories")
-
 ]
 
 if settings.DEBUG:

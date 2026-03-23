@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_ckeditor_5',
 ]
 
 MIDDLEWARE = [
@@ -122,3 +123,17 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'blog' / 'static',
 ]
+
+
+# CKEditor 5 config
+CKEDITOR_5_UPLOAD_PATH = "uploads/"
+CKEDITOR_5_CONFIGS = {
+    'default': {
+        'toolbar': [
+            'heading', 'bold', 'italic', 'link', 'bulletedList', 'numberedList',
+            'blockQuote', 'imageUpload', 'mediaEmbed', 'undo', 'redo',
+        ],
+        'height': 300,
+        'width': '100%',
+    },
+}
